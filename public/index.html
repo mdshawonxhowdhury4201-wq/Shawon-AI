@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Shawon AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="logo">S</div>
+      <div><h1>Shawon AI</h1><p>Personal reply assistant</p></div>
+      <span class="status">AI</span>
+    </header>
+
+    <section class="intro">
+      <h2>কী উত্তর দেব, লিখে দাও।</h2>
+      <p>মেসেজটি পেস্ট করো। আমি একই ভাষায় উত্তরের একটি খসড়া তৈরি করব।</p>
+    </section>
+
+    <label for="incoming">যে মেসেজের উত্তর দিতে চাও</label>
+    <textarea id="incoming" maxlength="5000" placeholder="এখানে বাংলা, English অথবা Banglish মেসেজ পেস্ট করো..."></textarea>
+
+    <label for="style">তোমার লেখার ধরন (ঐচ্ছিক)</label>
+    <input id="style" maxlength="1200" placeholder="যেমন: ছোট, সহজ, বন্ধুসুলভ উত্তর">
+
+    <button id="make" type="button">উত্তরের খসড়া তৈরি করো</button>
+    <p id="error" class="error" role="alert"></p>
+
+    <section class="result" aria-live="polite">
+      <div class="result-head"><h3>উত্তরের খসড়া</h3><button id="copy" class="copy" type="button" disabled>কপি</button></div>
+      <div id="answer" class="answer">তোমার উত্তর এখানে দেখা যাবে।</div>
+    </section>
+
+    <p class="notice">এটি শুধু খসড়া তৈরি করে। Facebook বা Messenger-এ নিজে দেখে পাঠাবে। গুরুত্বপূর্ণ বিষয়ে পাঠানোর আগে যাচাই করবে।</p>
+    <footer>Shawon AI · Early version</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
