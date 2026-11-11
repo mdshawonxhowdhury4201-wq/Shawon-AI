@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: system-ui, -apple-system, "Noto Sans Bengali", sans-serif; }
+body { margin: 0; min-height: 100vh; background: #0b1220; color: #eef2ff; }
+.shell { width: min(100% - 28px, 620px); margin: 0 auto; padding: 24px 0 34px; }
+.top { display: flex; align-items: center; gap: 12px; }
+.logo { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 15px; background: #6d5dfc; font-size: 24px; font-weight: 800; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 2px; font-size: 21px; }
+.top p { margin: 0; color: #9aa8c2; font-size: 13px; }
+.status { margin-left: auto; border: 1px solid #3d4a65; border-radius: 20px; padding: 5px 11px; color: #b8b1ff; font-size: 12px; }
+.intro { margin: 32px 0 22px; }
+.intro h2 { margin-bottom: 8px; font-size: 22px; }
+.intro p, .notice { color: #a8b3c9; line-height: 1.6; font-size: 14px; }
+label { display: block; margin: 18px 0 8px; font-size: 14px; font-weight: 650; }
+textarea, input { width: 100%; border: 1px solid #34415a; border-radius: 13px; background: #121d30; color: #f4f6ff; padding: 14px; font: inherit; outline: none; }
+textarea { min-height: 145px; resize: vertical; }
+textarea:focus, input:focus { border-color: #8a7dff; }
+button { border: 0; border-radius: 13px; background: #7163ff; color: white; padding: 14px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+#make { width: 100%; margin-top: 18px; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.error { min-height: 20px; color: #ff9b9b; font-size: 13px; margin: 10px 0 0; }
+.result { margin-top: 16px; padding: 16px; border: 1px solid #34415a; border-radius: 16px; background: #111b2d; }
+.result-head { display: flex; justify-content: space-between; align-items: center; }
+.result h3 { margin: 0 0 12px; font-size: 15px; }
+.copy { padding: 7px 13px; font-size: 13px; }
+.answer { white-space: pre-wrap; overflow-wrap: anywhere; color: #e6eaff; line-height: 1.7; min-height: 50px; }
+.notice { margin-top: 18px; font-size: 12px; }
+footer { text-align: center; color: #66748e; font-size: 12px; margin-top: 28px; }
