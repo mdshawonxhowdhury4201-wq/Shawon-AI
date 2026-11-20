@@ -5,6 +5,14 @@ const copyButton = document.getElementById("copy");
 const answerBox = document.getElementById("answer");
 const errorBox = document.getElementById("error");
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch((error) => {
+      console.error("Service worker registration failed:", error);
+    });
+  });
+}
+
 makeButton.addEventListener("click", async () => {
   const message = incoming.value.trim();
   errorBox.textContent = "";
