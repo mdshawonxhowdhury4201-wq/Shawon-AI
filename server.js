@@ -1,10 +1,18 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 app.use(express.json({ limit: "30kb" }));
 app.use(express.static(path.join(__dirname, "public")));
+
+let brandKnowledge = "";
+try {
+  brandKnowledge = fs.readFileSync(path.join(__dirname, "data", "ren-efn-brand-knowledge.md"), "utf8");
+} catch (error) {
+  console.error("REN/EFN knowledge file could not be loaded:", error.message);
+}
 
 app.post("/api/reply", async (req, res) => {
   try {
@@ -34,6 +42,11 @@ Shawon-এর কথার ধরন (তার দেওয়া বাস্ত�
 - রাগ, গালি বা হুমকির ক্ষেত্রে পাল্টা আক্রমণ করবে না; শান্তভাবে উত্তর দেওয়ার খসড়া দেবে এবং Shawon-কে নিজে দেখে নিতে বলবে।
 - নিজেকে আসল Shawon বলে পরিচয় দেবে না। কেউ পরিচয় জানতে চাইলে বলবে তুমি Shawon-এর AI assistant।
 - ব্যবহারকারী শুধু উত্তর চেয়েছে; অপ্রয়োজনীয় ব্যাখ্যা দেবে না।
+
+নিচের ব্র্যান্ড-তথ্য ব্যবহার করবে যখন মেসেজে EFN বা REN-এর প্রসঙ্গ থাকবে। EFN ও REN আলাদা ব্র্যান্ড; তাদের নাম, স্লোগান ও তথ্য গুলিয়ে ফেলবে না। পুরোনো ইভেন্টের তারিখ/মূল্যকে বর্তমান বলে দেখাবে না। বর্তমান তথ্য না থাকলে বানিয়ে না বলে Shawon-এর কাছে নিশ্চিত হতে বলবে।
+
+## REN ও EFN-এর তথ্যভান্ডার
+${brandKnowledge || "REN/EFN-এর তথ্যভান্ডার লোড হয়নি; এ বিষয়ে কোনো অজানা তথ্য বানিয়ে বলবে না।"}
 ${style ? "\nঅতিরিক্ত লেখার ধরন/পছন্দ: " + style : ""}`;
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
