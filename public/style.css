@@ -24,6 +24,19 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 .result h3 { margin: 0 0 12px; font-size: 15px; }
 .copy { padding: 7px 13px; font-size: 13px; }
 .answer { white-space: pre-wrap; overflow-wrap: anywhere; color: #e6eaff; line-height: 1.7; min-height: 50px; }
+.history-section { margin-top: 22px; padding: 16px; border: 1px solid #344766; border-radius: 16px; background: rgba(17, 27, 45, .78); }
+.history-heading, .history-item-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.history-heading h3 { margin: 0 0 4px; font-size: 16px; }
+.history-heading p, .history-info small { margin: 0; color: #9eacc5; font-size: 11px; }
+.clear-history, .history-view, .history-delete { padding: 7px 10px; font-size: 12px; }
+.clear-history, .history-delete { background: #39445a; }
+.history-list { display: grid; gap: 10px; margin-top: 14px; }
+.history-empty { color: #9eacc5; text-align: center; font-size: 13px; margin: 12px 0 4px; }
+.history-item { padding: 12px; border: 1px solid #344766; border-radius: 12px; background: #121d30; }
+.history-info { min-width: 0; display: grid; gap: 4px; }
+.history-info strong { font-size: 13px; overflow-wrap: anywhere; }
+.history-actions { display: flex; flex: 0 0 auto; gap: 6px; }
+.history-preview { margin: 9px 0 0; color: #b9c5dc; font-size: 12px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
 .notice { margin-top: 18px; font-size: 12px; }
 footer { text-align: center; color: #7585a3; font-size: 12px; margin-top: 28px; }
 @media (max-width: 380px) {
@@ -33,4 +46,7 @@ footer { text-align: center; color: #7585a3; font-size: 12px; margin-top: 28px; 
   h1 { font-size: 17px; }
   .top p { font-size: 11px; }
   .intro h2 { font-size: 20px; }
+  .history-section { padding: 12px; }
+  .history-actions { gap: 4px; }
+  .history-view, .history-delete { padding: 7px 8px; }
 }
