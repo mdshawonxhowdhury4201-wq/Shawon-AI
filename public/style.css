@@ -50,3 +50,7 @@ footer { text-align: center; color: #7585a3; font-size: 12px; margin-top: 28px; 
   .history-actions { gap: 4px; }
   .history-view, .history-delete { padding: 7px 8px; }
 }
+
+.history-search-label { margin-top: 14px; }
+.history-search { padding: 11px 12px; font-size: 13px; }
+.history-search::placeholder { color: #8190aa; }
