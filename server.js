@@ -14,6 +14,33 @@ try {
   console.error("REN/EFN knowledge file could not be loaded:", error.message);
 }
 
+
+// Meta Page Webhook verification and event receiver.
+// Set META_WEBHOOK_VERIFY_TOKEN in the Render environment before configuring Meta.
+app.get("/webhooks/meta", (req, res) => {
+  const mode = req.query["hub.mode"];
+  const token = req.query["hub.verify_token"];
+  const challenge = req.query["hub.challenge"];
+  const expectedToken = process.env.META_WEBHOOK_VERIFY_TOKEN;
+
+  if (mode === "subscribe" && expectedToken && token === expectedToken && challenge) {
+    return res.status(200).type("text/plain").send(challenge);
+  }
+  return res.sendStatus(403);
+});
+
+app.post("/webhooks/meta", (req, res) => {
+  const body = req.body || {};
+  if (body.object !== "page") {
+    return res.sendStatus(404);
+  }
+
+  // Acknowledge quickly; Page event processing will be added separately.
+  const entries = Array.isArray(body.entry) ? body.entry.length : 0;
+  console.log("Meta Page webhook received:", { entries });
+  return res.sendStatus(200);
+});
+
 app.post("/api/reply", async (req, res) => {
   try {
     const message = typeof req.body.message === "string" ? req.body.message.trim() : "";
