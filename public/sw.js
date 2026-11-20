@@ -1,4 +1,4 @@
-const CACHE_NAME = "shawon-ai-v1";
+const CACHE_NAME = "shawon-ai-v2";
 const APP_SHELL = ["/", "/index.html", "/style.css", "/app.js", "/favicon.svg", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
