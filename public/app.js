@@ -5,6 +5,7 @@ const copyButton = document.getElementById("copy");
 const answerBox = document.getElementById("answer");
 const errorBox = document.getElementById("error");
 const historyList = document.getElementById("historyList");
+const historySearch = document.getElementById("historySearch");
 const HISTORY_KEY = "shawon-ai-reply-history";
 const MAX_HISTORY = 50;
 
@@ -34,13 +35,25 @@ function saveHistory(items) {
 }
 
 function renderHistory() {
-  const items = readHistory();
+  const allItems = readHistory();
+  const query = historySearch.value.trim().toLocaleLowerCase();
+  const items = allItems.filter((item) =>
+    !query || item.message.toLocaleLowerCase().includes(query) || item.answer.toLocaleLowerCase().includes(query)
+  );
   historyList.replaceChildren();
+
+  if (!allItems.length) {
+    const empty = document.createElement("p");
+    empty.className = "history-empty";
+    empty.textContent = "এখনো কোনো উত্তর সেভ হয়নি।";
+    historyList.appendChild(empty);
+    return;
+  }
 
   if (!items.length) {
     const empty = document.createElement("p");
     empty.className = "history-empty";
-    empty.textContent = "এখনো কোনো উত্তর সেভ হয়নি।";
+    empty.textContent = "এই শব্দ দিয়ে কোনো History পাওয়া যায়নি।";
     historyList.appendChild(empty);
     return;
   }
@@ -112,6 +125,8 @@ document.getElementById("clearHistory").addEventListener("click", () => {
     renderHistory();
   }
 });
+
+historySearch.addEventListener("input", renderHistory);
 
 renderHistory();
 
