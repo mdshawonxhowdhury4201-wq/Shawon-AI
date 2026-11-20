@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Shawon AI Assistant",
+  "short_name": "Shawon AI",
+  "description": "Your personal AI reply assistant",
+  "lang": "bn",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101827",
+  "theme_color": "#101827",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
